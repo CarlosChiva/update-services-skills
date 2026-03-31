@@ -8,11 +8,9 @@ Agent Skills are folders of instructions, scripts, and resources that agents can
 
 ## Available Skills
 <!-- START:Available-Skills -->
-
 | Skill | Description |
 | ----- | ----------- |
-| update-services | give instructions how open-webui and ollama should be updated |
-
+| [update-services](./skills/update-services) | give instructions how open-webui and ollama should be updated |
 <!-- END:Available-Skills -->
 
 ## Installation

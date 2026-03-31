@@ -3,7 +3,13 @@
     {
       "name": "update-services",
       "description": "give instructions how open-webui and ollama should be updated",
-      "files": ["SKILL.md"]
+      "files": [
+        "SKILL.md",
+        "references/update-ollama.md",
+        "references/update-open-webui.md",
+        "scripts/install_ollama.sh",
+        "scripts/update_opencode.sh"
+      ]
     }
   ]
 }
