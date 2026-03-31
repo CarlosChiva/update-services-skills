@@ -1,10 +1,3 @@
-Aquí tienes el fichero de referencia reestructurado, mucho más claro para que un agente de IA lo entienda y ejecute a la perfección. 
-
-He unificado el idioma al inglés (ya que las cabeceras estaban en inglés) para mayor consistencia en la lectura de la IA, he añadido el parámetro de `CUDA_VISIBLE_DEVICES` y el ejemplo exacto de ejecución con el `sudo -S`.
-
-***
-
-```markdown
 # Skill: Updating Ollama Service
 
 Follow these steps to update the Ollama service using the automated script.
@@ -62,6 +55,17 @@ The script allows passing environment variables as arguments to configure Ollama
 - **CUDA_VISIBLE_DEVICES**
   Defines which Graphics Cards (GPUs) Ollama will use.
   - *Usage*: A single ID (e.g., `0`) or comma-separated IDs (e.g., `0,1`) to use multiple GPUs.
+
+### 📋 Flow for Environment Variables Configuration:
+
+1. **Ask the user** if they want to configure any environment variables.
+2. **If YES**, present the list of available variables (see below).
+3. **For each variable the user selects**:
+   - Ask: "What value would you like to set for [VARIABLE_NAME]?"
+   - Wait for the user's response.
+   - Validate the format if possible (e.g., IP:port format for OLLAMA_HOST).
+4. **Collect all selected variables** with their user-provided values.
+5. **If NO**, proceed with default configuration.
 
 ---
 
