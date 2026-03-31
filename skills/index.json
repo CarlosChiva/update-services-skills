@@ -1,0 +1,9 @@
+{
+  "skills": [
+    {
+      "name": "update-services",
+      "description": "give instructions how open-webui and ollama should be updated",
+      "files": ["SKILL.md"]
+    }
+  ]
+}
