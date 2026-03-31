@@ -1,4 +1,4 @@
-# Architecture for dread Agent Skills Repository
+# Architecture for update-services-skills Repository
 
 A living document for understanding how this repository is structured and how its parts fit together. Update as the codebase evolves.
 
@@ -100,6 +100,6 @@ Both platforms support: `name`, `description`, `version`, `author`, `homepage`, 
 
 ## Project Identification
 
-- **Project:** dread Agent Skills
-- **Repository:** https://github.com/dread/agent-skills
+- **Project:** update-services-skills
+- **Repository:** https://github.com/CarlosChiva/update-services-skills
 - **License:** MIT

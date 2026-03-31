@@ -1,4 +1,4 @@
-# dread Agent Skills
+# update-services-skills
 
 This repository contains a collection of agent skills for dread. These skills are designed to enhance the capabilities of agents by providing them with specialized functionalities.
 
@@ -23,13 +23,13 @@ Use [skills](https://skills.sh/) to install skills directly:
 
 ```bash
 # Install all skills
-npx skills add dread/agent-skills
+npx skills add CarlosChiva/agent-skills
 
 # Install specific skills
-npx skills add dread/agent-skills --skill update-services
+npx skills add CarlosChiva/agent-skills --skill update-services
 
 # List available skills
-npx skills add dread/agent-skills --list
+npx skills add CarlosChiva/agent-skills --list
 ```
 
 ### Claude Code Plugin
@@ -49,10 +49,10 @@ Agent skills can also be installed by using the below commands from [Playbooks](
 
 ```bash
 # Playbooks
-npx playbooks add skill dread/agent-skills
+npx playbooks add skill CarlosChiva/agent-skills
 
 # Context7
-npx ctx7 skills install /dread/agent-skills
+npx ctx7 skills install /CarlosChiva/agent-skills
 ```
 
 ## Adding New Skills

@@ -1,10 +1,10 @@
 {
-  "name": "dread-agent-skills",
-  "description": "dread agent skills",
+  "name": "update-services-skills",
+  "description": "skills for update services like openwebui and ollama",
   "version": "1.0.0",
   "author": { "name": "dread", "email": "cxhiva@gmail.com" },
   "homepage": "https://example.com",
-  "repository": "https://github.com/dread/agent-skills",
+  "repository": "https://github.com/CarlosChiva/update-services-skills",
   "license": "MIT",
   "keywords": ["ai","agent","skill"],
   "skills": "./skills/"

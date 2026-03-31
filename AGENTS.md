@@ -1,7 +1,7 @@
-# dread - Agent Skills Repository
+# CarlosChiva - Update-services Skills Repository
 ## AGENTS.md (Symlink to CLAUDE.md)
 
-This repo contains dread Agent Skills — folders of instructions, references, scripts, and assets that AI agents use to work more accurately. For detailed architecture, see [ARCHITECTURE.md](ARCHITECTURE.md).
+This repo contains skills to update services as openwebui and ollama services — folders of instructions, references, scripts, and assets that AI agents use to work more accurately. For detailed architecture, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Repo Structure
 
