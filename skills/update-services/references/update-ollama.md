@@ -66,7 +66,7 @@ The script allows passing environment variables as arguments to configure Ollama
    - Validate the format if possible (e.g., IP:port format for OLLAMA_HOST).
 4. **Collect all selected variables** with their user-provided values.
 5. **If NO**, proceed with default configuration.
-
+6. **Once you have the configuration to launch script** ask to user before to launch script. Only run the script after of user confirmation.
 ---
 
 ## Step 3: Script Execution and Examples
