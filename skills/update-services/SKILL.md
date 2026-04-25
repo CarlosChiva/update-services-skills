@@ -3,8 +3,8 @@ name: update-services
 description: give instructions how open-webui and ollama should be updated
 license: MIT
 metadata:
-  author: dread
-  repository: "https://github.com/dread/agent-skills"
+  author: "dread"
+  repository: "https://github.com/CarlosChiva/update-services-skills"
   version: "1.0.0"
   keywords: "ai, agent, skill"
 ---
