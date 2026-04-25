@@ -10,17 +10,29 @@ You need root/sudo privileges to update the Ollama service and modify its system
 
 ---
 
-## Step 1: Update Ollama
+## Step 1: Enter Your Password
+
+Prompt the user for their sudo password, then store it in a variable. All subsequent `sudo` commands will read from this variable using `sudo -S`.
+
+```bash
+read -rsp "Enter your sudo password: " SUDO_PASS && echo
+```
+
+> **Security note**: The password is stored in a shell variable only for the duration of this session and is never written to disk or logs.
+
+---
+
+## Step 2: Update Ollama
 
 Run the official installation script to update Ollama to the latest version:
 
 ```bash
-curl -fsSL https://ollama.com/install.sh | sh
+echo "$SUDO_PASS" | sudo -S curl -fsSL https://ollama.com/install.sh | sh
 ```
 
 ---
 
-## Step 2: Ask User About Additional Configuration
+## Step 3: Ask User About Additional Configuration
 
 Before editing the systemd unit file, ask the user:
 
@@ -28,7 +40,7 @@ Before editing the systemd unit file, ask the user:
 
 ---
 
-## Step 3: Expose Available Environment Variables
+## Step 4: Expose Available Environment Variables
 
 If the user says **yes**, present the list of configurable variables:
 
@@ -74,12 +86,12 @@ If the user says **yes**, present the list of configurable variables:
 
 ---
 
-## Step 4: Add Environment Variables to the Systemd Unit File
+## Step 5: Add Environment Variables to the Systemd Unit File
 
 For each variable the user selects, run:
 
 ```bash
-sudo sed -i '/\[Install\]/i Environment="<VARIABLE_NAME>=<VALUE>"' /etc/systemd/system/ollama.service
+echo "$SUDO_PASS" | sudo -S sed -i '/\[Install\]/i Environment="<VARIABLE_NAME>=<VALUE>"' /etc/systemd/system/ollama.service
 ```
 
 ### Examples
@@ -87,38 +99,38 @@ sudo sed -i '/\[Install\]/i Environment="<VARIABLE_NAME>=<VALUE>"' /etc/systemd/
 **Set OLLAMA_HOST to expose the service on the local network:**
 
 ```bash
-sudo sed -i '/\[Install\]/i Environment="OLLAMA_HOST=0.0.0.0:11434"' /etc/systemd/system/ollama.service
+echo "$SUDO_PASS" | sudo -S sed -i '/\[Install\]/i Environment="OLLAMA_HOST=0.0.0.0:11434"' /etc/systemd/system/ollama.service
 ```
 
 **Change the models storage path:**
 
 ```bash
-sudo sed -i '/\[Install\]/i Environment="OLLAMA_MODELS=/mnt/storage/models"' /etc/systemd/system/ollama.service
+echo "$SUDO_PASS" | sudo -S sed -i '/\[Install\]/i Environment="OLLAMA_MODELS=/mnt/storage/models"' /etc/systemd/system/ollama.service
 ```
 
 **Use specific GPUs:**
 
 ```bash
-sudo sed -i '/\[Install\]/i Environment="CUDA_VISIBLE_DEVICES=0,1"' /etc/systemd/system/ollama.service
+echo "$SUDO_PASS" | sudo -S sed -i '/\[Install\]/i Environment="CUDA_VISIBLE_DEVICES=0,1"' /etc/systemd/system/ollama.service
 ```
 
 **Set multiple variables (run each on its own line):**
 
 ```bash
-sudo sed -i '/\[Install\]/i Environment="OLLAMA_HOST=0.0.0.0:11434"' /etc/systemd/system/ollama.service
-sudo sed -i '/\[Install\]/i Environment="OLLAMA_MODELS=/mnt/storage/models"' /etc/systemd/system/ollama.service
-sudo sed -i '/\[Install\]/i Environment="CUDA_VISIBLE_DEVICES=0"' /etc/systemd/system/ollama.service
+echo "$SUDO_PASS" | sudo -S sed -i '/\[Install\]/i Environment="OLLAMA_HOST=0.0.0.0:11434"' /etc/systemd/system/ollama.service
+echo "$SUDO_PASS" | sudo -S sed -i '/\[Install\]/i Environment="OLLAMA_MODELS=/mnt/storage/models"' /etc/systemd/system/ollama.service
+echo "$SUDO_PASS" | sudo -S sed -i '/\[Install\]/i Environment="CUDA_VISIBLE_DEVICES=0"' /etc/systemd/system/ollama.service
 ```
 
 ---
 
-## Step 5: Reload and Restart the Service
+## Step 6: Reload and Restart the Service
 
 After adding any environment variables, reload the systemd daemon and restart Ollama:
 
 ```bash
-sudo systemctl daemon-reload
-sudo systemctl restart ollama
+echo "$SUDO_PASS" | sudo -S systemctl daemon-reload
+echo "$SUDO_PASS" | sudo -S systemctl restart ollama
 ```
 
 ---
@@ -128,7 +140,7 @@ sudo systemctl restart ollama
 Check that the service is running correctly:
 
 ```bash
-sudo systemctl status ollama
+echo "$SUDO_PASS" | sudo -S systemctl status ollama
 ```
 
 Check that environment variables are applied:
@@ -144,19 +156,22 @@ systemctl show ollama --property=Environment
 **User wants to expose the service on LAN and use GPU 0:**
 
 ```bash
+# Enter sudo password
+read -rsp "Enter your sudo password: " SUDO_PASS && echo
+
 # 1. Update Ollama
-curl -fsSL https://ollama.com/install.sh | sh
+echo "$SUDO_PASS" | sudo -S curl -fsSL https://ollama.com/install.sh | sh
 
 # 2. Add environment variables
-sudo sed -i '/\[Install\]/i Environment="OLLAMA_HOST=0.0.0.0:11434"' /etc/systemd/system/ollama.service
-sudo sed -i '/\[Install\]/i Environment="CUDA_VISIBLE_DEVICES=0"' /etc/systemd/system/ollama.service
+echo "$SUDO_PASS" | sudo -S sed -i '/\[Install\]/i Environment="OLLAMA_HOST=0.0.0.0:11434"' /etc/systemd/system/ollama.service
+echo "$SUDO_PASS" | sudo -S sed -i '/\[Install\]/i Environment="CUDA_VISIBLE_DEVICES=0"' /etc/systemd/system/ollama.service
 
 # 3. Reload and restart
-sudo systemctl daemon-reload
-sudo systemctl restart ollama
+echo "$SUDO_PASS" | sudo -S systemctl daemon-reload
+echo "$SUDO_PASS" | sudo -S systemctl restart ollama
 
 # 4. Verify
-sudo systemctl status ollama
+echo "$SUDO_PASS" | sudo -S systemctl status ollama
 ```
 
 ---
