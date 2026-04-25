@@ -1,13 +1,3 @@
----
-name: update-ollama
-description: Step-by-step guide to update Ollama service with optional environment variable configuration.
-license: MIT
-metadata:
-  author: "dread"
-  version: "1.0.0"
-  keywords: "ollama, update, install, systemctl, environment-variables, gpu, cuda"
----
-
 # Skill: Updating Ollama Service
 
 Follow these steps to update the Ollama service manually without using an automated script.
