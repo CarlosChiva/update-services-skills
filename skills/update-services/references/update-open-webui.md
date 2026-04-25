@@ -1,13 +1,3 @@
----
-name: update-open-webui
-description: Step-by-step guide to update Open-WebUI Docker container with optional configuration.
-license: MIT
-metadata:
-  author: "dread"
-  version: "1.0.0"
-  keywords: "open-webui, update, docker, container, self-hosted, llm"
----
-
 # Skill: Updating Open-WebUI Service
 
 Follow these steps to update the Open-WebUI service manually without using an automated script.
